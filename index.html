@@ -106,7 +106,7 @@
             font-size: 2.5rem;
             border-radius: 50px;
             border: 1px solid #187899;
-            background-color: #0c0c0c; 
+            background-color: #0c0c0c00; 
             color: white;
            
         }
@@ -125,6 +125,7 @@
             margin-right: 10px;
             font-size: 2.5rem;
             color: white;
+        }
         }
         @media only screen and (max-width: 1300px) {
        body{
@@ -145,7 +146,7 @@
         <select id="playlistSelect">
             <option value="playlist1">Workout</option>
             <option value="playlist2">English</option>
-            <option value="playlist3">Bollywood</option>
+            <option value="playlist3">Mix</option>
             <option value="playlist4">Arijit Singh</option>
             <option value="playlist5">King</option>
         </select>
@@ -168,16 +169,21 @@
    
     <script>
 
-// window.addEventListener("contextmenu", function (e) {
-//          e.preventDefault();
-//     });
-        const playlists = {
+window.addEventListener("contextmenu", function (e) {
+         e.preventDefault();
+    });
+       const playlists = {
           playlist1: [
+                { name: 'Jai Jai Shiv Shankar', src: 'Bollywood/Jai Jai Shiv Shankar.mp3' },
                 { name: 'Get Ready To Fight', src: 'Workout/Get Ready To Fight.mp3' },
                 { name: 'Kar Har Maidaan Fateh', src: 'Workout/Kar Har Maidaan Fateh.mp3' },
+                { name: 'Shoorveer', src: 'Workout/Shoorveer.mp3' },
+                { name: 'Hymn For The Weekend', src: 'English/Hymn For The Weekend.mp3' },
                 { name: 'Bandeya Rey Bandeya', src: 'Workout/Bandeya Rey Bandeya.mp3' },
                 { name: 'Brothers Anthem', src: 'Workout/Brothers Anthem.mp3' },
                 { name: 'Unstoppable', src: 'Workout/Unstoppable.mp3' },
+                { name: 'Aarambh', src: 'Workout/Aarambh.mp3' },
+                { name: 'Despacito', src: 'English/Despacito.mp3' },
                 { name: 'Ziddi Dil', src: 'Workout/Ziddi Dil.mp3' },
                 { name: 'Parwah Nahi', src: 'Workout/Parwah Nahi.mp3' },
                 { name: 'Ignite', src: 'Workout/Ignite.mp3' },
@@ -185,21 +191,31 @@
                 // { name: '', src: 'Workout/.mp3' },
             ],
             playlist2: [
+                { name: 'Hymn For The Weekend', src: 'English/Hymn For The Weekend.mp3' },
                 { name: 'Alone', src: 'English/Alone.mp3' },
                 { name: 'Faded', src: 'English/Faded.mp3' },
                 { name: 'Ignite', src: 'English/Ignite.mp3' },
+                { name: 'Despacito', src: 'English/Despacito.mp3' },
                 { name: 'Love Me Like You Do', src: 'English/Love Me Like You Do.mp3' },
                 { name: 'Let Me Down Slowly', src: 'English/Let Me Down Slowly.mp3' },
                 // { name: '', src: 'English/.mp3' },
             ],
-             playlist3: [
+            playlist3: [
+                { name: 'Chogada', src: 'Bollywood/Chogada.mp3' },
+                { name: 'Dil Mera Blast', src: 'Bollywood/Dil Mera Blast.mp3' },
                 { name: 'Maan Meri Jaan', src: 'King/Maan Meri Jaan.mp3' },
-                { name: 'Tu aake dekh le', src: 'King/Tu aake dekh le.mp3' },
+                { name: 'Tu Aake Dekh Le', src: 'King/Tu Aake Dekh Le.mp3' },
+                { name: 'Tujhse Naraz Nahi Zindagi', src: 'Bollywood/Tujhse Naraz Nahi Zindagi.mp3' },
                 { name: 'Ratta Maar', src: 'Bollywood/Ratta Maar.mp3' },
                 { name: 'Deva Deva', src: 'Arijit_Singh/Deva Deva.mp3' },
                 { name: 'Hum Nahi Sudhrenge', src: 'Bollywood/Hum Nahi Sudhrenge.mp3' },
+                { name: 'Besabriyaan', src: 'Bollywood/Besabriyaan.mp3' },
                 { name: 'Buddhu sa mann', src: 'Bollywood/Buddhu sa mann.mp3' },
+                { name: 'Heeriye', src: 'Arijit_Singh/Heeriye.mp3' },
+                { name: 'Shoorveer', src: 'Workout/Shoorveer.mp3' },
                 { name: 'Kaise Hua', src: 'Bollywood/Kaise Hua.mp3' },
+                { name: 'Jai Jai Shiv Shankar', src: 'Bollywood/Jai Jai Shiv Shankar.mp3' },
+                { name: 'Aarambh', src: 'Workout/Aarambh.mp3' },
                 { name: 'Mere Sohneya', src: 'Bollywood/Mere Sohneya.mp3' },
                 { name: 'Pehla Pyaar', src: 'Bollywood/Pehla Pyaar.mp3' },
                 { name: 'Phir Kabhi', src: 'Bollywood/Phir Kabhi.mp3' },
@@ -209,6 +225,8 @@
             ],
             playlist4: [
                 { name: 'Deva Deva', src: 'Arijit_Singh/Deva Deva.mp3' },
+                { name: 'Heeriye', src: 'Arijit_Singh/Heeriye.mp3' },
+                { name: 'Kesariya', src: 'Arijit_Singh/Kesariya.mp3' },
                 { name: 'Bekhayali', src: 'Arijit_Singh/Bekhayali.mp3' },
                 { name: 'Tu Hi Yaar Mera', src: 'Arijit_Singh/Tu Hi Yaar Mera.mp3' },
                 { name: 'Hawayein', src: 'Arijit_Singh/Hawayein.mp3' },
