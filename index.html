@@ -44,7 +44,7 @@
             margin-top: -2rem;
             /* letter-spacing: 10px; */
             color: white;
-            text-shadow: 1px 1px 20px #187899, 0 0 20px #187899, 0 0 20px #187899; 
+            text-shadow: 1px 1px 20px #187899, 0 0 20px #187899, 0 0 20px #187899;  
         }
         .c3{
             display: flex;
@@ -76,6 +76,24 @@
             border-radius: 5px;
             border: 10px solid #187899;
         } 
+        @keyframes colorChange {
+            0% {
+                border-color:#df101a;
+            }
+            25% {
+                border-color: #9b59b6;
+            }
+            50% {
+                border-color:	#0f4d6e;
+            }
+            75% {
+                border-color:	#4fa3c4;
+            }
+            100% {
+                border-color:	#ff8c00;
+            }
+        }
+       
         #prevButton, #nextButton{
             height: 8rem;
             width: 8rem;
@@ -126,16 +144,15 @@
             font-size: 2.5rem;
             color: white;
         }
-        
         @media only screen and (max-width: 1300px) {
        body{
         background-image: url(mbg.jpg); 
         /* background-image: url(https://i.pinimg.com/736x/04/66/63/04666316cd52041933d91157ca894d41.jpg); */
         background-size: cover;
     }
-      .c1{
-          margin-top: 18rem;
-      }      
+    .c1{
+        margin-top: 18rem;
+    }
 }
 
 
@@ -151,14 +168,14 @@
             <option value="playlist5">King</option>
         </select>
 
-        <label id="ser"for="searchInput"><i  id="mag"class="fa-solid fa-magnifying-glass"></i> </label>
+        <label id="ser"for="searchInput" ><i  id="mag"class="fa-solid fa-magnifying-glass"></i> </label>
     <input type="text" id="searchInput"placeholder="  Search in Playlist">
     </div>
     <div class="c1">
         <div class="c2"><h2><p id="audioName"> </p></h2></div>
         <div class="c3">
             
-    <audio id="audioPlayer"controls controlslist="nodownload">
+    <audio id="audioPlayer" class="musicPlayer"controls controlslist="nodownload">
         Your browser does not support the audio element.
     </audio>
     
@@ -168,10 +185,9 @@
     </div>
    
     <script>
-
-window.addEventListener("contextmenu", function (e) {
-         e.preventDefault();
-    });
+// window.addEventListener("contextmenu", function (e) {
+//          e.preventDefault();
+//     });
         const playlists = {
           playlist1: [
                 { name: 'Jai Jai Shiv Shankar', src: 'Bollywood/Jai Jai Shiv Shankar.mp3' },
@@ -201,7 +217,7 @@ window.addEventListener("contextmenu", function (e) {
                 { name: 'Let Me Down Slowly', src: 'English/Let Me Down Slowly.mp3' },
                 // { name: '', src: 'English/.mp3' },
             ],
-             playlist3: [
+            playlist3: [
                 { name: 'Sawarne Lage', src: 'Bollywood/Sawarne Lage.mp3' },
                 { name: 'Chogada', src: 'Bollywood/Chogada.mp3' },
                 { name: 'Makhna', src: 'Bollywood/Makhna.mp3' },
@@ -305,6 +321,43 @@ window.addEventListener("contextmenu", function (e) {
         // Event listeners for the Next and Previous buttons
         document.getElementById('nextButton').addEventListener('click', playNext);
         document.getElementById('prevButton').addEventListener('click', playPrevious);
+
+
+        // Lighting start
+        const borderElement = document.querySelector('.musicPlayer');
+        const musicPlayer = document.getElementById('audioPlayer');
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioContext.createAnalyser();
+
+        const source = audioContext.createMediaElementSource(musicPlayer);
+        source.connect(analyser);
+        analyser.connect(audioContext.destination);
+
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        function updateAnimationSpeed() {
+            analyser.getByteFrequencyData(dataArray);
+            const averageFrequency = dataArray.reduce((sum, value) => sum + value, 0) / bufferLength;
+            const speedMultiplier = 0.1; // Adjust this multiplier as needed
+
+            const animationSpeed = (averageFrequency / 255) * speedMultiplier;
+            borderElement.style.animation = `colorChange ${4 / animationSpeed}s linear infinite`;
+        }
+
+        musicPlayer.addEventListener('play', function () {
+            audioContext.resume().then(() => {
+                const animationInterval = setInterval(updateAnimationSpeed, 1000 / 30); // Update every 30ms
+
+                musicPlayer.addEventListener('pause', function () {
+                    clearInterval(animationInterval);
+                    borderElement.style.animation = 'none';
+                });
+            });
+        });
+        // Lighting end
     </script>
 </body>
 </html>
+
