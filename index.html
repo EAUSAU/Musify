@@ -5,8 +5,9 @@
     <script src="https://kit.fontawesome.com/b1e903e1a1.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script&family=Merienda&family=Roboto:wght@300&family=Supermercado+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script&family=Merienda&family=Roboto:wght@300&family=Supermercado+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.png" type="image/x-icon">
 
 </head>
@@ -16,7 +17,6 @@
         padding: 0px 0px;
         /* font-family: Merienda;
         font-family: Bangers; */
-        font-family: roboto;
         background-image: url(bg.jpg);
         /* background-image: url(https://images.pexels.com/photos/3721941/pexels-photo-3721941.jpeg?cs=srgb&dl=pexels-daniel-reche-3721941.jpg&fm=jpg); */
             background-size: cover;
@@ -42,6 +42,7 @@
             /* border: 1px solid black; */
             font-size: 3rem;
             margin-top: -2rem;
+            font-family: roboto;
             /* letter-spacing: 10px; */
             color: white;
             text-shadow: 1px 1px 20px #187899, 0 0 20px #187899, 0 0 20px #187899;  
@@ -115,7 +116,7 @@
             /* border: 1px solid black; */
             margin-left: auto;
             margin-right: auto;
-            margin-top: 5rem;
+            margin-top: -8rem;
             /* background-color: #120e0e; */
         }
         #searchInput{
@@ -147,6 +148,24 @@
             font-size: 2.5rem;
             color: white;
         }
+        .logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: auto;
+            margin-left: 30px;
+            margin-top: 30px;
+            color: white;
+            height: 150px;
+            width: 150px;
+            border-radius: 5px;
+            font-size: 3.4rem;
+            font-weight: lighter;
+            font-family: 'Dancing Script', cursive;
+            background-color: #187899;
+            text-shadow: 1.5px -1px #ff00ff, -1.5px 1px #00ffff; 
+        }
+       
         @media only screen and (max-width: 1300px) {
        body{
         background-image: url(mbg.jpg); 
@@ -156,11 +175,19 @@
     .c1{
         margin-top: 18rem;
     }
+    .logo{
+        margin-left: auto;
+            margin-right: auto;
+    }
+    .sp{
+        margin-top: 5rem;
+    }
 }
 
 
 </style>
 <body>
+    <div class="logo">Musify</div>
     <div class="sp">
         <label for="playlistSelect"></label>
         <select id="playlistSelect">
@@ -180,11 +207,9 @@
         <div class="c3">
             
     <audio id="audioPlayer" class="musicPlayer"controls controlslist="nodownload">
-        Your browser does not support the audio element.
     </audio>
-    
         </div>
-        <div class="c4"><button id="prevButton"><i class="fa-solid fa-backward-step"></i></button><button id="nextButton"><i class="fa-solid fa-forward-step"></i></button></div>
+        <div class="c4"><button id="prevButton"><i class="fa-solid fa-backward-step"></i></button> <button id="nextButton"><i class="fa-solid fa-forward-step"></i></button></div>
         
     </div>
    
@@ -370,6 +395,9 @@
             });
         });
         // Lighting end
+// play pause start
+
+        // play pause end
     </script>
 </body>
 </html>
