@@ -399,7 +399,24 @@ window.addEventListener("contextmenu", function (e) {
         });
         // Lighting end
 // play pause start
+// Get the audio element by ID
+var audio = document.getElementById("audioPlayer");
 
+// Add an event listener to the document for the space bar key press
+document.addEventListener("keydown", function(event) {
+  // Check if the pressed key is the space bar (keyCode 32)
+  if (event.keyCode === 32) {
+    // Prevent the default action of the space bar (e.g., scrolling the page)
+    event.preventDefault();
+
+    // Toggle between play and pause
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+});
         // play pause end
     </script>
 </body>
