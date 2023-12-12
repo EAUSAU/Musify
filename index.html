@@ -28,13 +28,13 @@
             /* justify-content: center; */
             /* align-items: center; */
             flex-direction: column;
-            height: auto;
+             height: auto;
             width: auto;
             /* border: 1px solid black; */
             /* box-shadow:inset 0px 0px 20px 8px #000000; */
             margin-left: auto;
             margin-right: auto;
-            margin-top: -3rem;
+            margin-top: 2rem;
         }
         .c2{
             display: flex;
@@ -42,8 +42,8 @@
             align-items: center;
             /* border: 1px solid black; */
             font-size: 3rem;
-            margin-top: -2rem;
             font-family: roboto;
+            margin-top: -2rem;
             /* letter-spacing: 10px; */
             color: white;
             text-shadow: 1px 1px 20px #187899, 0 0 20px #187899, 0 0 20px #187899;  
@@ -52,7 +52,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: -2rem;
+            margin-top: -3rem;
             /* border: 1px solid black; */
         }
         .c4{
@@ -60,9 +60,8 @@
             justify-content: center;
             align-items: center;
             /* border: 1px solid black; */
-            margin-top: 2rem;
-            margin-bottom: 10px;
             height: 50px;
+            margin-top: 3rem;
             width: auto;
         }
          audio{
@@ -72,8 +71,6 @@
             text-align: center;
             height: 50px; 
             width: 65%;
-            margin-top: auto;
-            margin-bottom: auto;
             background-color: #f2f2f2;
             border-radius: 5px;
             box-shadow: 0px 0px 20px 20px #187899;
@@ -117,7 +114,7 @@
             /* border: 1px solid black; */
             margin-left: auto;
             margin-right: auto;
-            margin-top: -8rem;
+            margin-top: -10rem;
             /* background-color: #120e0e; */
         }
         #searchInput{
@@ -154,8 +151,8 @@
             justify-content: center;
             align-items: center;
             margin-right: auto;
-            margin-left: 30px;
             margin-top: 30px;
+            margin-left: 30px;
             color: white;
             height: 170px;
             width: 160px;
@@ -168,7 +165,7 @@
             font-family: 'Dancing Script', cursive;
             background-color: #187899;
             text-shadow: 1.5px 0px #ff00ff, -1.5px 0px #00ffff;
-             box-shadow: -5px 0px 20px 0px #00ffff, inset 5px 0px 20px 0px #00ffff, 5px 0px 20px 0px #ff00ff, inset -5px 0px 20px 0px #ff00ff;
+            box-shadow: -5px 0px 20px 0px #00ffff, inset 5px 0px 20px 0px #00ffff, 5px 0px 20px 0px #ff00ff, inset -5px 0px 20px 0px #ff00ff;
         }
        
         @media only screen and (max-width: 1300px) {
@@ -188,7 +185,6 @@
         margin-top: 5rem;
     }
 }
-
 
 </style>
 <body>
@@ -214,14 +210,14 @@
     <audio id="audioPlayer" class="musicPlayer"controls controlslist="nodownload">
     </audio>
         </div>
-        <div class="c4"><button id="prevButton"><i class="fa-solid fa-backward-step"></i></button> <button id="nextButton"><i class="fa-solid fa-forward-step"></i></button></div>
-        
-    </div>
+        <div class="c4"><button id="prevButton"><i class="fa-solid fa-backward-step"></i></button> <button id="nextButton"><i class="fa-solid fa-forward-step"></i></button>
+        </div>
+        </div>
    
     <script>
-window.addEventListener("contextmenu", function (e) {
-         e.preventDefault();
-     });
+// window.addEventListener("contextmenu", function (e) {
+//          e.preventDefault();
+//     });
         const playlists = {
             playlist1: [
                 { name: 'Sawarne Lage', src: 'Bollywood/Sawarne Lage.mp3' },
@@ -247,6 +243,7 @@ window.addEventListener("contextmenu", function (e) {
                 { name: 'Tera Ban Jaunga', src: 'Bollywood/Tera Ban Jaunga.mp3' },
                 { name: 'Pehla Pyaar', src: 'Bollywood/Pehla Pyaar.mp3' },
                 { name: 'Phir Kabhi', src: 'Bollywood/Phir Kabhi.mp3' },
+                
                 // { name: '', src: 'Bollywood/.mp3' },
             ],
             playlist2: [
@@ -421,8 +418,7 @@ document.addEventListener("keydown", function(event) {
   }
 });
         // play pause end
+        
     </script>
 </body>
 </html>
-
-
