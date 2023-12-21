@@ -169,7 +169,22 @@
             text-shadow: 1.5px 0px #ff00ff, -1.5px 0px #00ffff;
             box-shadow: -5px 0px 20px 0px #00ffff, inset 5px 0px 20px 0px #00ffff, 5px 0px 20px 0px #ff00ff, inset -5px 0px 20px 0px #ff00ff;
         }
-       
+        #toggleLoopButton {
+            background-color: rgba(0, 0, 0, 0);
+            color: #00ff00;
+            /* padding: 10px 20px; */
+            font-size: 3rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        #toggleLoopButton.on {
+            color: #00ff00;
+        }
+
+        #toggleLoopButton.off {
+            color: #ffffff;
+        }
         @media only screen and (max-width: 1300px) {
        body{
         background-image: url(mbg.jpg); 
@@ -205,15 +220,20 @@
         <label id="ser"for="searchInput" ><i id="mag"class="fa-solid fa-magnifying-glass"></i></label>
     <input type="text" id="searchInput"placeholder="Search in Playlist">
     </div>
-    <div class="c1">
+  <div class="c1">
+
         <div class="c2"><h2><p id="audioName"> </p></h2></div>
-        <div class="c3">
-            
-    <audio id="audioPlayer" class="musicPlayer"controls controlslist="nodownload">
-    </audio>
+
+        <div class="c3">    
+    <audio id="audioPlayer" class="musicPlayer"controls controlslist="nodownload"></audio>
         </div>
-        <div class="c4"><button id="prevButton"><i class="fa-solid fa-backward-step"></i></button> <button id="nextButton"><i class="fa-solid fa-forward-step"></i></button>
+
+        <div class="c4">
+            <button id="prevButton"><i class="fa-solid fa-backward-step"></i></button>   
+            <button id="toggleLoopButton"><i class="fa-solid fa-retweet"></i></button>  
+            <button id="nextButton"><i class="fa-solid fa-forward-step"></i></button>
         </div>
+        
         </div>
    
     <script>
@@ -404,18 +424,29 @@
         // Lighting end
 
 // loop play start
+let isLooping = true; // Flag to track loop state
+
+
 function playNext() {
     if (currentIndex < currentPlaylist.length) {
         audioPlayer.src = currentPlaylist[currentIndex].src;
         audioPlayer.play();
         audioName.textContent = ' ' + currentPlaylist[currentIndex].name;
         currentIndex++;
-    } else {
-        // If we've reached the end of the playlist, loop back to the beginning
+    } else if (isLooping) {
+        // If we've reached the end of the playlist and looping is enabled, loop back to the beginning
         currentIndex = 0;
         playNext();
     }
 }
+
+
+// Event listener for the Toggle Loop button
+document.getElementById('toggleLoopButton').addEventListener('click', function() {
+    isLooping = !isLooping; // Toggle the loop state
+    this.classList.toggle('on', isLooping);
+    this.classList.toggle('off', !isLooping);
+});
 // loop play end
         
 // play pause start
