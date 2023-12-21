@@ -402,6 +402,22 @@
             });
         });
         // Lighting end
+
+// loop play start
+function playNext() {
+    if (currentIndex < currentPlaylist.length) {
+        audioPlayer.src = currentPlaylist[currentIndex].src;
+        audioPlayer.play();
+        audioName.textContent = ' ' + currentPlaylist[currentIndex].name;
+        currentIndex++;
+    } else {
+        // If we've reached the end of the playlist, loop back to the beginning
+        currentIndex = 0;
+        playNext();
+    }
+}
+// loop play end
+        
 // play pause start
 // Get the audio element by ID
 var audio = document.getElementById("audioPlayer");
