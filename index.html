@@ -168,6 +168,28 @@
         #searchButton:hover{
             border: 2px solid #ffffff;
         }
+    #suggestionBox {
+    margin-top: 10.5rem;
+    margin-left: 23rem;
+    display: none;
+    position: absolute;
+    width: 15rem;
+    height: 100px;
+    background-color: #0000007c;
+    color: white;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #187899;
+}
         .logo{
             display: flex;
             justify-content: center;
@@ -257,7 +279,7 @@
         </select>
 <input type="text" id="searchInput" placeholder="Search in Playlist">
     <button id="searchButton"><i id="mag"class="fa-solid fa-magnifying-glass"></i></button>
-        
+        <div id="suggestionBox"></div>
     </div>
   <div class="c1">
 
@@ -453,6 +475,49 @@ function performSearch() {
         playNext();
     }
 }
+// JavaScript code for suggestion box
+document.getElementById('searchInput').addEventListener('input', function() {
+    const query = this.value.trim().toLowerCase();
+    const suggestionBox = document.getElementById('suggestionBox');
+    suggestionBox.innerHTML = ''; // Clear previous suggestions
+
+    if (query.length === 0) {
+        // Hide suggestion box if query is empty
+        suggestionBox.style.display = 'none';
+        return;
+    }
+
+    let suggestions = [];
+    // Iterate over all playlists to find matching song names
+    Object.values(playlists).forEach(playlist => {
+        playlist.forEach(song => {
+            if (song.name.toLowerCase().includes(query)) {
+                suggestions.push(song);
+            }
+        });
+    });
+
+    if (suggestions.length > 0) {
+        // Display suggestions in the suggestion box
+        suggestionBox.style.display = 'block';
+        suggestions.slice(0, 5).forEach(song => {
+            const suggestionItem = document.createElement('div');
+            suggestionItem.textContent = song.name;
+            suggestionItem.classList.add('suggestion');
+            suggestionItem.addEventListener('click', function() {
+                // Play the selected song when clicked
+                audioPlayer.src = song.src;
+                audioPlayer.play();
+                audioName.textContent = ' ' + song.name;
+                suggestionBox.style.display = 'none'; // Hide suggestion box after selecting
+            });
+            suggestionBox.appendChild(suggestionItem);
+        });
+    } else {
+        // Hide suggestion box if no suggestions found
+        suggestionBox.style.display = 'none';
+    }
+});
 
 
         // Play the first audio when the page loads
