@@ -193,7 +193,7 @@
 .suggestion:hover {
     background-color: #187899;
 }
-        .logo{
+         .logo{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -213,6 +213,31 @@
             background-color: #187899;
             text-shadow: 1.5px 0px 0px #ff00ff, -1.5px 0px 0px #00ffff;
             box-shadow: -5px 0px 20px 0px #00ffff, inset 5px 0px 20px 0px #00ffff, 5px 0px 20px 0px #ff00ff, inset -5px 0px 20px 0px #ff00ff;
+            transform: rotate(-15deg);
+            animation: rot 6s linear infinite;
+            animation-play-state: paused;
+        }
+
+        @keyframes rot{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        #mus{
+            transform: rotate(15deg);
+            animation: mus 6s linear infinite;
+            animation-play-state: paused;
+        }
+        @keyframes mus{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(-360deg);
+            }
         }
         #toggleLoopButton {
             background-color: rgba(0, 0, 0, 0);
@@ -604,7 +629,29 @@ document.getElementById('toggleLoopButton').addEventListener('click', function()
     this.classList.toggle('off', !isLooping);
 });
 // loop play end
+// logo animation control start
+const logoElement = document.querySelector('.logo');
+const musElement = document.querySelector('#mus');
 
+// Function to start animation
+function startAnimation() {
+    logoElement.style.animationPlayState = 'running';
+    musElement.style.animationPlayState = 'running';
+}
+
+// Function to stop animation
+function stopAnimation() {
+    logoElement.style.animationPlayState = 'paused';
+    musElement.style.animationPlayState = 'paused';
+}
+
+// Event listener for play event of the audio player
+audioPlayer.addEventListener('play', startAnimation);
+
+// Event listener for pause event of the audio player
+audioPlayer.addEventListener('pause', stopAnimation);
+
+// logo animation control end
     </script>
 </body>
 </html>
