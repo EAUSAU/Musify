@@ -585,7 +585,7 @@ document.getElementById('searchInput').addEventListener('input', function() {
         function updateAnimationSpeed() {
             analyser.getByteFrequencyData(dataArray);
             const averageFrequency = dataArray.reduce((sum, value) => sum + value, 0) / bufferLength;
-            const speedMultiplier = 0.3; // Adjust this multiplier as needed
+            const speedMultiplier = 0.2; // Adjust this multiplier as needed
 
             const animationSpeed = (averageFrequency / 255) * speedMultiplier;
             borderElement.style.animation = `colorChange ${4 / animationSpeed}s linear infinite`;
