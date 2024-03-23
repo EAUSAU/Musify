@@ -5,6 +5,7 @@ Musify.com is a music listening website where users can listen to songs, explore
 ## Features
 
 - **Search Functionality**: Users can search for specific songs, a suggestion pannel will assist you to find your favorate song.
+- - **Loop Play**: This feature, allows you to listen playlist songs without break, If you want you can diable it by simply clicking on it.
 
 ## Getting Started
 
