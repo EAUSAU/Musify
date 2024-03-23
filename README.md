@@ -4,7 +4,7 @@ Musify.com is a music listening website where users can listen to songs, explore
 
 ## Features
 
-- **Search Functionality**: Users can search for specific songs.
+- **Search Functionality**: Users can search for specific songs, a suggestion pannel will assist you to find your favorate song.
 
 ## Getting Started
 
