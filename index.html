@@ -1,301 +1,334 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Musify</title>
     <script src="https://kit.fontawesome.com/b1e903e1a1.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script&family=Merienda&family=Roboto:wght@300&family=Supermercado+One&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script&family=Merienda&family=Roboto:wght@300&family=Supermercado+One&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
 
 </head>
 <style>
-    body{
+    body {
         margin: 0;
         padding: 0px 0px;
         /* font-family: Merienda;
         font-family: Bangers; */
         background-image: url(bg.jpg);
         /* background-image: url(https://images.pexels.com/photos/3721941/pexels-photo-3721941.jpeg?cs=srgb&dl=pexels-daniel-reche-3721941.jpg&fm=jpg); */
-            background-size: cover;
-        
-            
-    }
-.c1{
-            display: flex;
-            justify-content: center; 
-            /* align-items: center; */
-            flex-direction: column;
-             height: 300px;
-            width: auto;
-            /* border: 1px solid rgb(255, 255, 255); */
-            /* box-shadow:inset 0px 0px 20px 8px #000000; */
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 6rem;
-        }
-        #audioName{
-  margin-top: -2.5rem;
-}
-        .c2{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* border: 1px solid black; */
-            font-size: 3rem;
-            font-family: roboto;
-            margin-top: -2rem;
-            /* letter-spacing: 10px; */
-            color: white;
-            text-shadow: 1px 1px 20px #187899, 0 0 20px #187899, 0 0 20px #187899;  
-        }
-        .c3{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: -3rem;
-            /* border: 1px solid black; */
-        }
-        .c4{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* border: 1px solid black; */
-            height: 50px;
-            margin-top: 3rem;
-            width: auto;
-        }
-         audio{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            height: 50px; 
-            width: 65%;
-            background-color: #f2f2f2;
-            border-radius: 5px;
-            box-shadow: 0px 0px 20px 20px #187899;
-            
-        } 
-        @keyframes colorChange {
-            0% {
-                box-shadow: 0px 0px 20px 20px #df1010;
-            }
-            25% {
-                box-shadow: 0px 0px 20px 20px #9b59b6;
-            }
-            50% {
-                box-shadow: 0px 0px 20px 20px #0f4d6e;
-            }
-            75% {
-                box-shadow: 0px 0px 20px 20px #4fa3c4;
-            }
-            100% {
-                box-shadow: 0px 0px 20px 20px #ff8c00;
-            }
-        }
-       
-        #prevButton, #nextButton{
-            height: 8rem;
-            width: 8rem;
-            margin-left: 100px;
-            margin-right: 100px;
-            background-color: #187899;
-            border: 1px solid #187899;
-            color: white;
-            font-size: 5rem;
-            margin-top: 120px;
-            border-radius: 50%;
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .sp{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100px;
-            width: 800px;
-            /* border: 1px solid black; */
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: -10rem;
-            /* background-color: #120e0e; */
-        }
-        #searchInput{
-            height: 4.3rem;
-            width: 20rem;
-            font-size: 2.5rem;
-            padding-left: 25px;
-            padding-right: 25px;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-            border: 1px solid #187899;
-            background-color: #0c0c0c6b; 
-            color: white;
-           
-        }
-        #searchButton{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0);
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
-            border: 1px solid #187899;
-            width: 20rem;
-            height: 4.5rem;
-}
-        #playlistSelect{
-            margin-right: 120px;
-            height: 4.5rem;
-            width: 23rem;
-            font-size: 2.5rem;
-            border-radius: 5px;
-            padding-left: 15px;
-            padding-right: 15px;
-            border: 1px solid #187899;
-            background-color: #0c0c0c;
-            color: white; 
-            
-        }
-       
-        #mag{
-            margin-right: 5px;
-            margin-left: 5px;
-            font-size: 2.5rem;
-            color: #ffffff;
-        }
-        #searchButton:hover{
-            border: 2px solid #ffffff;
-        }
-        #suggestionBox {
-    margin-top: 14rem;
-    margin-left: 22rem;
-    display: none;
-    position: absolute;
-    width: 22rem;
-    height: 150px;
-    background-color: #0000007c;
-    color: white;
-    max-height: 150px;
-    overflow-y: auto;
-    z-index: 1;
-    font-size: 1.7rem;
-    font-family: roboto;
-}
-
-.suggestion {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.suggestion:hover {
-    background-color: #187899;
-}
-         .logo{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: auto;
-            margin-top: 30px;
-            margin-left: 30px;
-            color: white;
-            height: 170px;
-            width: 160px;
-            border-radius: 50%;
-            border-right: 5px solid #ff00ff;
-            border-left: 5px solid #00ffff;
-            font-size: 3.7rem;
-            letter-spacing: 0px;
-            font-weight: lighter;
-            font-family: 'Dancing Script', cursive;
-            background-color: #187899;
-            text-shadow: 1.5px 0px 0px #ff00ff, -1.5px 0px 0px #00ffff;
-            box-shadow: -5px 0px 20px 0px #00ffff, inset 5px 0px 20px 0px #00ffff, 5px 0px 20px 0px #ff00ff, inset -5px 0px 20px 0px #ff00ff;
-            transform: rotate(-15deg);
-            animation: rot 6s linear infinite;
-            animation-play-state: paused;
-        }
-
-        @keyframes rot{
-            0%{
-                transform: rotate(0deg);
-            }
-            100%{
-                transform: rotate(360deg);
-            }
-        }
-        #mus{
-            transform: rotate(15deg);
-            animation: mus 6s linear infinite;
-            animation-play-state: paused;
-        }
-        @keyframes mus{
-            0%{
-                transform: rotate(0deg);
-            }
-            100%{
-                transform: rotate(-360deg);
-            }
-        }
-        #toggleLoopButton {
-            background-color: rgba(0, 0, 0, 0);
-            color: #00ff00;
-            /* padding: 10px 20px; */
-            font-size: 3rem;
-            border: none;
-        }
-        #toggleLoopButton.on {
-            color: #00ff00;
-        }
-        #toggleLoopButton.on::after, #toggleLoopButton::after{
-            content: "";
-            position: absolute;
-            height: 7px;
-            width: 7px;
-            border-radius: 50%;
-             margin-top: 50px;
-            left: 50%;
-            background-color: #00ff00;
-           
-        }
-        #toggleLoopButton.off::after{
-            content: "";
-            position: absolute;
-            height: 7px;
-            width: 7px;
-            border-radius: 50%;
-             margin-top: 50px;
-            left: 50%;
-            background-color: #00ff0000;
-            
-        }
-        #toggleLoopButton.off {
-            color: #ffffff;
-        }
-
-        @media only screen and (max-width: 1300px) {
-       body{
-        background-image: url(mbg.jpg); 
-        /* background-image: url(https://i.pinimg.com/736x/04/66/63/04666316cd52041933d91157ca894d41.jpg); */
         background-size: cover;
+
+
     }
-    .c1{
-        margin-top: 26rem;
-    }
-    .logo{
+
+    .c1 {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        flex-direction: column;
+        height: 300px;
+        width: auto;
+        /* border: 1px solid rgb(255, 255, 255); */
+        /* box-shadow:inset 0px 0px 20px 8px #000000; */
         margin-left: auto;
+        margin-right: auto;
+        margin-top: 6rem;
+    }
+
+    #audioName {
+        margin-top: -2.5rem;
+    }
+
+    .c2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid black; */
+        font-size: 3rem;
+        font-family: roboto;
+        margin-top: -2rem;
+        /* letter-spacing: 10px; */
+        color: white;
+        text-shadow: 1px 1px 20px #187899, 0 0 20px #187899, 0 0 20px #187899;
+    }
+
+    .c3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -3rem;
+        /* border: 1px solid black; */
+    }
+
+    .c4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid black; */
+        height: 50px;
+        margin-top: 3rem;
+        width: auto;
+    }
+
+    audio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 50px;
+        width: 65%;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px 20px #187899;
+
+    }
+
+    @keyframes colorChange {
+        0% {
+            box-shadow: 0px 0px 20px 20px #df1010;
+        }
+
+        25% {
+            box-shadow: 0px 0px 20px 20px #9b59b6;
+        }
+
+        50% {
+            box-shadow: 0px 0px 20px 20px #0f4d6e;
+        }
+
+        75% {
+            box-shadow: 0px 0px 20px 20px #4fa3c4;
+        }
+
+        100% {
+            box-shadow: 0px 0px 20px 20px #ff8c00;
+        }
+    }
+
+    #prevButton,
+    #nextButton {
+        height: 8rem;
+        width: 8rem;
+        margin-left: 100px;
+        margin-right: 100px;
+        background-color: #187899;
+        border: 1px solid #187899;
+        color: white;
+        font-size: 5rem;
+        margin-top: 120px;
+        border-radius: 50%;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .sp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 800px;
+        /* border: 1px solid black; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -10rem;
+        /* background-color: #120e0e; */
+    }
+
+    #searchInput {
+        height: 4.3rem;
+        width: 20rem;
+        font-size: 2.5rem;
+        padding-left: 25px;
+        padding-right: 25px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border: 1px solid #187899;
+        background-color: #0c0c0c6b;
+        color: white;
+
+    }
+
+    #searchButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: 1px solid #187899;
+        width: 20rem;
+        height: 4.5rem;
+    }
+
+    #playlistSelect {
+        margin-right: 120px;
+        height: 4.5rem;
+        width: 23rem;
+        font-size: 2.5rem;
+        border-radius: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 1px solid #187899;
+        background-color: #0c0c0c;
+        color: white;
+
+    }
+
+    #mag {
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 2.5rem;
+        color: #ffffff;
+    }
+
+    #searchButton:hover {
+        border: 2px solid #ffffff;
+    }
+
+    #suggestionBox {
+        margin-top: 14rem;
+        margin-left: 22rem;
+        display: none;
+        position: absolute;
+        width: 22rem;
+        height: 150px;
+        background-color: #0000007c;
+        color: white;
+        max-height: 150px;
+        overflow-y: auto;
+        z-index: 1;
+        font-size: 1.7rem;
+        font-family: roboto;
+    }
+
+    .suggestion {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .suggestion:hover {
+        background-color: #187899;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-left: 30px;
+        color: white;
+        height: 170px;
+        width: 160px;
+        border-radius: 50%;
+        border-right: 5px solid #ff00ff;
+        border-left: 5px solid #00ffff;
+        font-size: 3.7rem;
+        letter-spacing: 0px;
+        font-weight: lighter;
+        font-family: 'Dancing Script', cursive;
+        background-color: #187899;
+        text-shadow: 1.5px 0px 0px #ff00ff, -1.5px 0px 0px #00ffff;
+        box-shadow: -5px 0px 20px 0px #00ffff, inset 5px 0px 20px 0px #00ffff, 5px 0px 20px 0px #ff00ff, inset -5px 0px 20px 0px #ff00ff;
+        transform: rotate(-15deg);
+        animation: rot 6s linear infinite;
+        animation-play-state: paused;
+    }
+
+    @keyframes rot {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    #mus {
+        transform: rotate(15deg);
+        animation: mus 6s linear infinite;
+        animation-play-state: paused;
+    }
+
+    @keyframes mus {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+
+    #toggleLoopButton {
+        background-color: rgba(0, 0, 0, 0);
+        color: #00ff00;
+        /* padding: 10px 20px; */
+        font-size: 3rem;
+        border: none;
+    }
+
+    #toggleLoopButton.on {
+        color: #00ff00;
+    }
+
+    #toggleLoopButton.on::after,
+    #toggleLoopButton::after {
+        content: "";
+        position: absolute;
+        height: 7px;
+        width: 7px;
+        border-radius: 50%;
+        margin-top: 50px;
+        left: 50%;
+        background-color: #00ff00;
+
+    }
+
+    #toggleLoopButton.off::after {
+        content: "";
+        position: absolute;
+        height: 7px;
+        width: 7px;
+        border-radius: 50%;
+        margin-top: 50px;
+        left: 50%;
+        background-color: #00ff0000;
+
+    }
+
+    #toggleLoopButton.off {
+        color: #ffffff;
+    }
+
+    @media only screen and (max-width: 1300px) {
+        body {
+            background-image: url(mbg.jpg);
+            /* background-image: url(https://i.pinimg.com/736x/04/66/63/04666316cd52041933d91157ca894d41.jpg); */
+            background-size: cover;
+        }
+
+        .c1 {
+            margin-top: 26rem;
+        }
+
+        .logo {
+            margin-left: auto;
             margin-right: auto;
+        }
+
+        .sp {
+            margin-top: 5rem;
+        }
     }
-    .sp{
-        margin-top: 5rem;
-    }
-}
-
-
-
 </style>
+
 <body>
     <div class="logo"><span id="mus">Musify</span></div>
     <div class="sp">
@@ -311,31 +344,35 @@
         </select>
 
 
-    <input type="text" id="searchInput" placeholder="Search Songs">
-    <button id="searchButton"><i id="mag"class="fa-solid fa-magnifying-glass"></i></button>
-    <div id="suggestionBox"></div>
-        
+        <input type="text" id="searchInput" placeholder="Search Songs">
+        <button id="searchButton"><i id="mag" class="fa-solid fa-magnifying-glass"></i></button>
+        <div id="suggestionBox"></div>
+
     </div>
     <div class="c1">
 
-        <div class="c2"><h2><p id="audioName"> </p></h2></div>
+        <div class="c2">
+            <h2>
+                <p id="audioName"> </p>
+            </h2>
+        </div>
 
-        <div class="c3">    
-    <audio id="audioPlayer" class="musicPlayer"controls controlslist="nodownload"></audio>
+        <div class="c3">
+            <audio id="audioPlayer" class="musicPlayer" controls controlslist="nodownload"></audio>
         </div>
 
         <div class="c4">
-            <button id="prevButton"><i class="fa-solid fa-backward-step"></i></button>   
-            <button id="toggleLoopButton"><i class="fa-solid fa-retweet"></i></button>  
+            <button id="prevButton"><i class="fa-solid fa-backward-step"></i></button>
+            <button id="toggleLoopButton"><i class="fa-solid fa-retweet"></i></button>
             <button id="nextButton"><i class="fa-solid fa-forward-step"></i></button>
         </div>
-        
-        </div>
-   
+
+    </div>
+
     <script>
-window.addEventListener("contextmenu", function (e) {
-          e.preventDefault();
-    });
+        window.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
         const playlists = {
             playlist1: [
                 { name: 'Malang', src: 'Mix/Malang.mp3' },
@@ -430,18 +467,18 @@ window.addEventListener("contextmenu", function (e) {
                 // { name: '', src: 'Workout/.mp3' },
             ],
             playlist5: [
-            { name: 'Maan Meri Jaan', src: 'King/Maan Meri Jaan.mp3' },
-            { name: 'Tu Aake Dekh Le', src: 'King/Tu Aake Dekh Le.mp3' },
+                { name: 'Maan Meri Jaan', src: 'King/Maan Meri Jaan.mp3' },
+                { name: 'Tu Aake Dekh Le', src: 'King/Tu Aake Dekh Le.mp3' },
                 // { name: '', src: 'King/.mp3' },
             ],
             playlist6: [
-            { name: 'Shayad X Night Changes', src: 'Mashup/Shayad X Night Changes.mp3' },
+                { name: 'Shayad X Night Changes', src: 'Mashup/Shayad X Night Changes.mp3' },
                 // { name: '', src: 'Mashup/.mp3' },
             ],
             playlist7: [
-            { name: 'See You Again', src: 'Instrumental/See You Again.mp3' },
-            { name: 'Memory Reboot', src: 'Instrumental/Memory Reboot.mp3' },
-            { name: 'Faded', src: 'Instrumental/Faded.mp3' },
+                { name: 'See You Again', src: 'Instrumental/See You Again.mp3' },
+                { name: 'Memory Reboot', src: 'Instrumental/Memory Reboot.mp3' },
+                { name: 'Faded', src: 'Instrumental/Faded.mp3' },
                 // { name: '', src: 'Instrumental/.mp3' },
             ],
         };
@@ -474,87 +511,87 @@ window.addEventListener("contextmenu", function (e) {
         }
 
         // Update the current playlist when the dropdown selection changes
-        playlistSelect.addEventListener('change', function() {
+        playlistSelect.addEventListener('change', function () {
             currentPlaylist = playlists[this.value];
             currentIndex = 0;
             playNext();
         });
-        
-      // Search functionality
-document.getElementById('searchButton').addEventListener('click', performSearch);
 
-document.getElementById('searchInput').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        performSearch();
-    }
-});
+        // Search functionality
+        document.getElementById('searchButton').addEventListener('click', performSearch);
 
-function performSearch() {
-    const query = document.getElementById('searchInput').value.trim().toLowerCase();
-    let filteredPlaylist = [];
-
-    // Iterate over all playlists
-    Object.values(playlists).forEach(playlist => {
-        // Filter songs in each playlist based on the search query
-        const filteredSongs = playlist.filter(song => song.name.toLowerCase().includes(query));
-        // Concatenate filtered songs to the filteredPlaylist array
-        filteredPlaylist = filteredPlaylist.concat(filteredSongs);
-    });
-
-    if (filteredPlaylist.length === 0) {
-        // If no songs match the search query, show a notification
-        alert('Song not found.');
-    } else {
-        // If matching songs are found, update the current playlist, reset index, and play the first song
-        currentPlaylist = filteredPlaylist;
-        currentIndex = 0;
-        playNext();
-    }
-}
-
-// JavaScript code for suggestion box
-document.getElementById('searchInput').addEventListener('input', function() {
-    const query = this.value.trim().toLowerCase();
-    const suggestionBox = document.getElementById('suggestionBox');
-    suggestionBox.innerHTML = ''; // Clear previous suggestions
-
-    if (query.length === 0) {
-        // Hide suggestion box if query is empty
-        suggestionBox.style.display = 'none';
-        return;
-    }
-
-    let suggestions = [];
-    // Iterate over all playlists to find matching song names
-    Object.values(playlists).forEach(playlist => {
-        playlist.forEach(song => {
-            if (song.name.toLowerCase().includes(query)) {
-                suggestions.push(song);
+        document.getElementById('searchInput').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                performSearch();
             }
         });
-    });
 
-    if (suggestions.length > 0) {
-        // Display suggestions in the suggestion box
-        suggestionBox.style.display = 'block';
-        suggestions.slice(0, 5).forEach(song => {
-            const suggestionItem = document.createElement('div');
-            suggestionItem.textContent = song.name;
-            suggestionItem.classList.add('suggestion');
-            suggestionItem.addEventListener('click', function() {
-                // Play the selected song when clicked
-                audioPlayer.src = song.src;
-                audioPlayer.play();
-                audioName.textContent = ' ' + song.name;
-                suggestionBox.style.display = 'none'; // Hide suggestion box after selecting
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            let filteredPlaylist = [];
+
+            // Iterate over all playlists
+            Object.values(playlists).forEach(playlist => {
+                // Filter songs in each playlist based on the search query
+                const filteredSongs = playlist.filter(song => song.name.toLowerCase().includes(query));
+                // Concatenate filtered songs to the filteredPlaylist array
+                filteredPlaylist = filteredPlaylist.concat(filteredSongs);
             });
-            suggestionBox.appendChild(suggestionItem);
+
+            if (filteredPlaylist.length === 0) {
+                // If no songs match the search query, show a notification
+                alert('Song not found.');
+            } else {
+                // If matching songs are found, update the current playlist, reset index, and play the first song
+                currentPlaylist = filteredPlaylist;
+                currentIndex = 0;
+                playNext();
+            }
+        }
+
+        // JavaScript code for suggestion box
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const query = this.value.trim().toLowerCase();
+            const suggestionBox = document.getElementById('suggestionBox');
+            suggestionBox.innerHTML = ''; // Clear previous suggestions
+
+            if (query.length === 0) {
+                // Hide suggestion box if query is empty
+                suggestionBox.style.display = 'none';
+                return;
+            }
+
+            let suggestions = [];
+            // Iterate over all playlists to find matching song names
+            Object.values(playlists).forEach(playlist => {
+                playlist.forEach(song => {
+                    if (song.name.toLowerCase().includes(query)) {
+                        suggestions.push(song);
+                    }
+                });
+            });
+
+            if (suggestions.length > 0) {
+                // Display suggestions in the suggestion box
+                suggestionBox.style.display = 'block';
+                suggestions.slice(0, 5).forEach(song => {
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.textContent = song.name;
+                    suggestionItem.classList.add('suggestion');
+                    suggestionItem.addEventListener('click', function () {
+                        // Play the selected song when clicked
+                        audioPlayer.src = song.src;
+                        audioPlayer.play();
+                        audioName.textContent = ' ' + song.name;
+                        suggestionBox.style.display = 'none'; // Hide suggestion box after selecting
+                    });
+                    suggestionBox.appendChild(suggestionItem);
+                });
+            } else {
+                // Hide suggestion box if no suggestions found
+                suggestionBox.style.display = 'none';
+            }
         });
-    } else {
-        // Hide suggestion box if no suggestions found
-        suggestionBox.style.display = 'none';
-    }
-});
 
 
 
@@ -605,54 +642,55 @@ document.getElementById('searchInput').addEventListener('input', function() {
         // Lighting end
 
 
-// loop play start
-let isLooping = true; // Flag to track loop state
+        // loop play start
+        let isLooping = true; // Flag to track loop state
 
 
-function playNext() {
-    if (currentIndex < currentPlaylist.length) {
-        audioPlayer.src = currentPlaylist[currentIndex].src;
-        audioPlayer.play();
-        audioName.textContent = ' ' + currentPlaylist[currentIndex].name;
-        currentIndex++;
-    } else if (isLooping) {
-        // If we've reached the end of the playlist and looping is enabled, loop back to the beginning
-        currentIndex = 0;
-        playNext();
-    }
-}
+        function playNext() {
+            if (currentIndex < currentPlaylist.length) {
+                audioPlayer.src = currentPlaylist[currentIndex].src;
+                audioPlayer.play();
+                audioName.textContent = ' ' + currentPlaylist[currentIndex].name;
+                currentIndex++;
+            } else if (isLooping) {
+                // If we've reached the end of the playlist and looping is enabled, loop back to the beginning
+                currentIndex = 0;
+                playNext();
+            }
+        }
 
 
-// Event listener for the Toggle Loop button
-document.getElementById('toggleLoopButton').addEventListener('click', function() {
-    isLooping = !isLooping; // Toggle the loop state
-    this.classList.toggle('on', isLooping);
-    this.classList.toggle('off', !isLooping);
-});
-// loop play end
-// logo animation control start
-const logoElement = document.querySelector('.logo');
-const musElement = document.querySelector('#mus');
+        // Event listener for the Toggle Loop button
+        document.getElementById('toggleLoopButton').addEventListener('click', function () {
+            isLooping = !isLooping; // Toggle the loop state
+            this.classList.toggle('on', isLooping);
+            this.classList.toggle('off', !isLooping);
+        });
+        // loop play end
+        // logo animation control start
+        const logoElement = document.querySelector('.logo');
+        const musElement = document.querySelector('#mus');
 
-// Function to start animation
-function startAnimation() {
-    logoElement.style.animationPlayState = 'running';
-    musElement.style.animationPlayState = 'running';
-}
+        // Function to start animation
+        function startAnimation() {
+            logoElement.style.animationPlayState = 'running';
+            musElement.style.animationPlayState = 'running';
+        }
 
-// Function to stop animation
-function stopAnimation() {
-    logoElement.style.animationPlayState = 'paused';
-    musElement.style.animationPlayState = 'paused';
-}
+        // Function to stop animation
+        function stopAnimation() {
+            logoElement.style.animationPlayState = 'paused';
+            musElement.style.animationPlayState = 'paused';
+        }
 
-// Event listener for play event of the audio player
-audioPlayer.addEventListener('play', startAnimation);
+        // Event listener for play event of the audio player
+        audioPlayer.addEventListener('play', startAnimation);
 
-// Event listener for pause event of the audio player
-audioPlayer.addEventListener('pause', stopAnimation);
+        // Event listener for pause event of the audio player
+        audioPlayer.addEventListener('pause', stopAnimation);
 
-// logo animation control end
+        // logo animation control end
     </script>
 </body>
+
 </html>
